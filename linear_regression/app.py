@@ -85,6 +85,7 @@ st.title('Предсказание стоимости автомобиля')
 current_dir = os.path.dirname(os.path.abspath(__file__))
 pkl_path = os.path.join(current_dir, 'car_pipeline.pkl')
 csv_path = os.path.join(current_dir, 'train_cleared.csv')
+html_path = os.path.join(current_dir, 'eda_report_train.html')
 
 # загрузка модели, скейлера и списка признаков из одного pickle
 @st.cache_resource
@@ -339,7 +340,7 @@ with tab4:
 with tab5:
     st.subheader('Подробный EDA отчёт (ydata-profiling)')
 
-    with open('eda_report_train.html', 'r', encoding='utf-8') as f:
+    with open(html_path, 'r', encoding='utf-8') as f:
         html_content = f.read()
 
     components.html(html_content, height=800, scrolling=True)
