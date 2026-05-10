@@ -6,6 +6,7 @@ import pickle
 import matplotlib.pyplot as plt
 import seaborn as sns
 import re
+import os
 
 
 # функции предобработки данных для входящего csv
