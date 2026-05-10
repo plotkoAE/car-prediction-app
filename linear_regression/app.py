@@ -80,11 +80,14 @@ def preprocess_csv(df):
 st.set_page_config(page_title='Предсказание цены авто', layout='wide')
 st.title('Предсказание стоимости автомобиля')
 
+# путь к файлам
+pkl_path = os.path.join(current_dir, 'car_pipeline.pkl')
+csv_path = os.path.join(current_dir, 'train_cleared.csv')
 
 # загрузка модели, скейлера и списка признаков из одного pickle
 @st.cache_resource
 def load_pipeline():
-    with open('car_pipeline.pkl', 'rb') as f:
+    with open(pkl_path, 'rb') as f:
         pipeline = pickle.load(f)
     return pipeline['model'], pipeline['scaler'], pipeline['feature_names']
 
@@ -92,7 +95,7 @@ def load_pipeline():
 # загрузка данных для визуализаций
 @st.cache_data
 def load_data():
-    df = pd.read_csv('train_cleared.csv')
+    df = pd.read_csv(csv_path)
     return df
 
 
