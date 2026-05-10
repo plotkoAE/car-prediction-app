@@ -82,6 +82,7 @@ st.set_page_config(page_title='Предсказание цены авто', layo
 st.title('Предсказание стоимости автомобиля')
 
 # путь к файлам
+current_dir = os.path.dirname(os.path.abspath(__file__))
 pkl_path = os.path.join(current_dir, 'car_pipeline.pkl')
 csv_path = os.path.join(current_dir, 'train_cleared.csv')
 
