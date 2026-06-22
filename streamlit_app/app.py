@@ -304,7 +304,7 @@ with tab3:
         ''')
 
     st.subheader('ROC-кривые')
-    with open('roc_data.json', 'r') as f:
+    with open('streamlit_app/roc_data.json', 'r') as f:
         roc_data = json.load(f)
 
     model_names = {
