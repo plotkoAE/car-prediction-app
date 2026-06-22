@@ -39,28 +39,28 @@ ALL_FEATURE_NAMES = [
 #загрузка модели и данных (кеширование)
 @st.cache_resource
 def load_model():
-    with open('best_model.pkl', 'rb') as f:
+    with open('streamlit_app/best_model.pkl', 'rb') as f:
         model = pickle.load(f)
     return model
 
 @st.cache_data
 def load_feature_columns():
-    with open('feature_columns.json', 'r') as f:
+    with open('streamlit_app/feature_columns.json', 'r') as f:
         return json.load(f)
 
 @st.cache_data
 def load_eda_data():
-    return pd.read_csv('df_eda_sample.csv')
+    return pd.read_csv('streamlit_app/df_eda_sample.csv')
 
 @st.cache_data
 def load_shap_data():
-    shap_values = pd.read_csv('shap_values_sample.csv')
-    top_features = pd.read_csv('shap_top_features.csv')
+    shap_values = pd.read_csv('streamlit_app/shap_values_sample.csv')
+    top_features = pd.read_csv('streamlit_app/shap_top_features.csv')
     return shap_values, top_features
 
 @st.cache_data
 def load_metrics():
-    return pd.read_csv('model_metrics.csv')
+    return pd.read_csv('streamlit_app/model_metrics.csv')
 
 model = load_model()
 feature_columns = load_feature_columns()
